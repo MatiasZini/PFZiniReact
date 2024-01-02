@@ -1,4 +1,5 @@
 import CartWidget from "../CartWidget/CartWidget";
+import { NavLink, Link } from "react-router-dom";
 
 const NavBar = (imgLogo) => {
     const {img} = imgLogo;
@@ -10,23 +11,12 @@ const NavBar = (imgLogo) => {
                     <img src={img} alt="logo" />
                 </a>
             </div>
-            <div id="navbarBasicExample" className="navbar-menu">
-                <div className="navbar-start">
-                    <a class="navbar-item" href="#">
-                        INICIO
-                    </a>
-
-                    <a className="navbar-item" href="#">
-                        PRODUCTOS
-                    </a>
-                    <a className="navbar-item" href="#">
-                        VENTAS
-                    </a>
-                    <a className="navbar-item" href="#">
-                        QUIENES SOMOS
-                    </a>
-                </div>
-            </div>
+        <div>
+            <Link to="/">INICIO</Link>
+            <NavLink to={`/category/buzos`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}>BUZOS</NavLink>
+            <NavLink to={`/category/accesorios`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}>ACCESORIOS</NavLink>
+            <NavLink to={`/category/remeras`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}>REMERAS</NavLink>
+        </div>
 <CartWidget/>
         </nav>
     )
